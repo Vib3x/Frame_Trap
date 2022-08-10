@@ -25,11 +25,14 @@ public class move_list extends AppCompatActivity {
 
         Intent intent = getIntent();
         String character_name = intent.getStringExtra(character_list.EXTRA_CHARACTER_NAME);
+        String game = intent.getStringExtra(character_list.EXTRA_GAME_NAME);
+
+        getSupportActionBar().setTitle(character_name);
         TableLayout table = (TableLayout) findViewById(R.id.table_moves);
         //InputStream is = getResources().open(getResources().getIdentifier(character_name, "raw", this.getPackageName()));
         InputStreamReader is = null;
         try {
-            is = new InputStreamReader(getAssets().open("CvS2_framedata/" + character_name + ".csv"));
+            is = new InputStreamReader(getAssets().open(game + "_framedata/" + character_name + ".csv"));
         } catch (IOException e) {
             e.printStackTrace();
         }
