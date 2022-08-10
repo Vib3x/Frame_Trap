@@ -4,49 +4,36 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Locale;
 
 public class character_list extends AppCompatActivity {
+    public static final String EXTRA_CHARACTER_NAME = "com.frametrap.app.extra_character_name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_list);
 
-        List<String> characters = new ArrayList<String>();
-        characters.add("Ken");
-        characters.add("Akuma");
-        characters.add("Terry");
-        characters.add("Geese Howard");
-        characters.add("Ryu");
-        characters.add("Yun");
-        characters.add("Iori");
-        characters.add("Eagle");
-        characters.add("Dan");
-        characters.add("Sakura");
-        characters.add("M. Bison");
-        characters.add("Vega");
-        characters.add("Sagat");
-        characters.add("Kyo");
-        characters.add("Blanka");
-        characters.add("Dalsim");
-        characters.add("Guile");
-        characters.add("Rugal");
+        String[] characters = null;
+        try {
+            characters = getAssets().list("CvS2_framedata");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-
-        Collections.sort(characters);
+        Arrays.sort(characters);
         LinearLayout list_view = (LinearLayout) findViewById(R.id.list_characters);
 
-        for (String character_name : characters) {
+        for (String character_file : characters) {
             TextView character = new TextView(this);
+            String character_name = character_file.substring(0, character_file.indexOf("."));
             character.setText(character_name);
             character.setTextSize(32);
             character.setPadding(0,10,0,10);
@@ -64,6 +51,7 @@ public class character_list extends AppCompatActivity {
     }
     public void openmovelist(String character_name) {
         Intent intent = new Intent(this, move_list.class);
+        intent.putExtra(EXTRA_CHARACTER_NAME, character_name);
         startActivity(intent);
     }
 }
