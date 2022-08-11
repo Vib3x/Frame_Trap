@@ -4,9 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
+import android.view.View
 import android.widget.LinearLayout
+import android.widget.ListView
+import android.widget.TableLayout
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -39,7 +43,11 @@ class MainActivity : AppCompatActivity() {
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        val toggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //val navController = findNavController(R.id.main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -47,8 +55,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_settings
             ), drawerLayout
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
+        //navView.setupWithNavController(navController)
 
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -77,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
         Arrays.sort(characters)
 
-        val listview: LinearLayout = binding.listcharacters
+        val listview = findViewById<View>(R.id.list_characters) as LinearLayout
 
         for (characterfile in characters!!) {
             val character: TextView = TextView(this)
@@ -107,10 +115,10 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
+    //override fun onSupportNavigateUp(): Boolean {
+        //val navController = findNavController(R.id.nav_host_fragment_content_main)
+        //return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    //}
 
     companion object {
         const val EXTRA_CHARACTER_NAME = "com.frametrap.app.extra_character_name"
