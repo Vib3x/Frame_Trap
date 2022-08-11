@@ -8,12 +8,5 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/list_characters"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"></LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

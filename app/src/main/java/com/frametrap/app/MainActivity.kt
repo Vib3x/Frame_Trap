@@ -77,10 +77,10 @@ class MainActivity : AppCompatActivity() {
 
         Arrays.sort(characters)
 
-        val listview: LinearLayout = binding.listCharacters
+        val listview: LinearLayout = binding.listcharacters
 
         for (characterfile in characters!!) {
-            val character: TextView = TextView(context)
+            val character: TextView = TextView(this)
             val charactername = characterfile.substring(0, characterfile.indexOf("."))
             character.text = charactername
             character.textSize = 32f

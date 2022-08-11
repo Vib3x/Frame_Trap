@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
 
         Arrays.sort(characters)
 
-        val listview: LinearLayout = binding.listCharacters
+        //val listview: LinearLayout = binding.listCharacters
 
         for (characterfile in characters!!) {
             val character: TextView = TextView(context)
@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
             character.setPadding(0, 10, 0, 10)
             character.gravity = Gravity.CENTER
             character.isClickable = true
-            listview.addView(character)
+            //listview.addView(character)
             character.setOnClickListener { openmovelist(charactername, game) }
         }
         return root
