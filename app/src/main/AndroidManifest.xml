@@ -14,11 +14,11 @@
         android:theme="@style/Theme.FrameTrap"
         tools:targetApi="31">
         <activity
-            android:name=".move_list"
+            android:name=".MoveList"
             android:exported="false"
-            android:parentActivityName=".character_list"/>
+            android:parentActivityName=".CharacterList"/>
         <activity
-            android:name=".character_list"
+            android:name=".CharacterList"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
