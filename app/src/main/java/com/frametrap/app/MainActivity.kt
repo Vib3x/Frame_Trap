@@ -47,9 +47,6 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_game -> {
-                    true
-                }
                 R.id.nav_settings -> {
                     val intent = Intent(this, SettingsActivity::class.java)
                     startActivity(intent)

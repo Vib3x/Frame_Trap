@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="game_array">
+        <item>"Capcom vs. SNK 2"</item>
+        <item>"JoJo's Ban"</item>
+        <item>item3</item>
+        <item>item4</item>
+    </string-array>
+</resources>
