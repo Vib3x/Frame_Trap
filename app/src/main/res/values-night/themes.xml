@@ -13,4 +13,11 @@
         <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:padding">4dp</item>
+        <!--<item name="android:background">@color/</item>
+        //<item name="android:foreground">@color/white</item>-->
+    </style>
+
 </resources>

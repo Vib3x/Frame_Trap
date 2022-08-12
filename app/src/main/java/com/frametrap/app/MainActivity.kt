@@ -8,26 +8,29 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import com.frametrap.app.databinding.ActivityMainBinding
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    //private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var gamespinner: Spinner
+    private lateinit var game: String
+    private lateinit var listview: LinearLayout
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
@@ -37,13 +40,38 @@ class MainActivity : AppCompatActivity() {
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
+        gamespinner = navView.menu.findItem(R.id.nav_game_spinner).actionView as Spinner
+        listview = findViewById<View>(R.id.list_characters) as LinearLayout
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val popupmenu = PopupMenu(this, findViewById(R.id.nav_game))
-        popupmenu.menuInflater.inflate(R.menu.game_menu, popupmenu.menu)
+        gamespinner.adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, arrayOf("Capcom vs. SNK 2", "Jojoban"))
+
+        gamespinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                when (id) {
+                    0L -> {
+                        supportActionBar!!.title = "Capcom vs. SNK 2"
+                        game = "CvS2"
+                        loadcharacters()
+                    }
+                    1L -> {
+                        supportActionBar!!.title = "JoJo's bizarre Adv."
+                        game = "jojoban"
+                        loadcharacters()
+                    }
+                    else -> false
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
+
+        //val popupmenu = PopupMenu(this, findViewById(R.id.nav_game))
+        //popupmenu.menuInflater.inflate(R.menu.game_menu, popupmenu.menu)
 
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -60,18 +88,20 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
 
-        val game = "CvS2"
-        if (game == "CvS2") {
-            supportActionBar!!.title = "Capcom vs. SNK 2"
-        } else {
-            supportActionBar!!.title = game
-        }
+    private fun openmovelist(charactername: String?, game: String?) {
+        val intent = Intent(this, MoveList::class.java)
+        intent.putExtra(EXTRA_CHARACTER_NAME, charactername)
+        intent.putExtra(EXTRA_GAME_NAME, game)
+        startActivity(intent)
+
+    }
+
+    private fun loadcharacters(){
+        //listview.setAdapter(null)
         val characters = assets?.list(game + "_framedata")
-
         Arrays.sort(characters)
-
-        val listview = findViewById<View>(R.id.list_characters) as LinearLayout
 
         for (characterfile in characters!!) {
             val character = TextView(this)
@@ -85,14 +115,6 @@ class MainActivity : AppCompatActivity() {
             listview.addView(character)
             character.setOnClickListener { openmovelist(charactername, game) }
         }
-    }
-
-    private fun openmovelist(charactername: String?, game: String?) {
-        val intent = Intent(this, MoveList::class.java)
-        intent.putExtra(EXTRA_CHARACTER_NAME, charactername)
-        intent.putExtra(EXTRA_GAME_NAME, game)
-        startActivity(intent)
-
     }
 
 
