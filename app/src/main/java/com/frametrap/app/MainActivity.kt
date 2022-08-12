@@ -4,17 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
-import androidx.annotation.NonNull
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.frametrap.app.databinding.ActivityMainBinding
@@ -24,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,20 +34,13 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "not functional yet", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val toggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        /*appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_settings
-            ), drawerLayout
-        )*/
 
         val popupmenu = PopupMenu(this, findViewById(R.id.nav_game))
         popupmenu.menuInflater.inflate(R.menu.game_menu, popupmenu.menu)
@@ -85,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         val listview = findViewById<View>(R.id.list_characters) as LinearLayout
 
         for (characterfile in characters!!) {
-            val character: TextView = TextView(this)
+            val character = TextView(this)
             val charactername = characterfile.substring(0, characterfile.indexOf("."))
             character.text = charactername
             character.textSize = 32f
@@ -98,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openmovelist(charactername: String?, game: String?) {
+    private fun openmovelist(charactername: String?, game: String?) {
         val intent = Intent(this, MoveList::class.java)
         intent.putExtra(EXTRA_CHARACTER_NAME, charactername)
         intent.putExtra(EXTRA_GAME_NAME, game)
@@ -113,6 +103,11 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item))
+            return true
+        return super.onOptionsItemSelected(item)
+    }
 
     companion object {
         const val EXTRA_CHARACTER_NAME = "com.frametrap.app.extra_character_name"
