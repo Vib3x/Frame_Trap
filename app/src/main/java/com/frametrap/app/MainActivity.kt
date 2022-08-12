@@ -53,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_about -> {
+                    val intent = Intent(this, AboutActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false
