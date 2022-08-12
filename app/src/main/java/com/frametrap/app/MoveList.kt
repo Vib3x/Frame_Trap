@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
-import com.frametrap.app.ui.home.HomeFragment
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader

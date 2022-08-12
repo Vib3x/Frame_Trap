@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.TableLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.NonNull
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.snackbar.Snackbar
@@ -21,7 +18,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.frametrap.app.databinding.ActivityMainBinding
-import com.frametrap.app.ui.home.HomeFragment
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -47,16 +43,17 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //val navController = findNavController(R.id.main)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
+        /*appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_settings
             ), drawerLayout
-        )
-        //setupActionBarWithNavController(navController, appBarConfiguration)
-        //navView.setupWithNavController(navController)
+        )*/
+
+        val popupmenu = PopupMenu(this, findViewById(R.id.nav_game))
+        popupmenu.menuInflater.inflate(R.menu.game_menu, popupmenu.menu)
 
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
@@ -76,11 +73,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         val game = "CvS2"
-        /*if (game == "CvS2") {
+        if (game == "CvS2") {
             supportActionBar!!.title = "Capcom vs. SNK 2"
         } else {
             supportActionBar!!.title = game
-        }*/
+        }
         val characters = assets?.list(game + "_framedata")
 
         Arrays.sort(characters)
@@ -92,6 +89,7 @@ class MainActivity : AppCompatActivity() {
             val charactername = characterfile.substring(0, characterfile.indexOf("."))
             character.text = charactername
             character.textSize = 32f
+            character.setTextColor(getColor(R.color.white))
             character.setPadding(0, 10, 0, 10)
             character.gravity = Gravity.CENTER
             character.isClickable = true
@@ -102,8 +100,8 @@ class MainActivity : AppCompatActivity() {
 
     fun openmovelist(charactername: String?, game: String?) {
         val intent = Intent(this, MoveList::class.java)
-        intent.putExtra(HomeFragment.EXTRA_CHARACTER_NAME, charactername)
-        intent.putExtra(HomeFragment.EXTRA_GAME_NAME, game)
+        intent.putExtra(EXTRA_CHARACTER_NAME, charactername)
+        intent.putExtra(EXTRA_GAME_NAME, game)
         startActivity(intent)
 
     }
@@ -115,10 +113,6 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    //override fun onSupportNavigateUp(): Boolean {
-        //val navController = findNavController(R.id.nav_host_fragment_content_main)
-        //return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    //}
 
     companion object {
         const val EXTRA_CHARACTER_NAME = "com.frametrap.app.extra_character_name"
