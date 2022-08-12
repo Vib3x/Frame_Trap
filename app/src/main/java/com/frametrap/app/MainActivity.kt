@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when (id) {
                     0L -> {
-                        supportActionBar!!.title = "Capcom vs. SNK 2"
+                        supportActionBar!!.title = "Capcom vs. SNK2"
                         game = "CvS2"
                         loadcharacters()
                     }
