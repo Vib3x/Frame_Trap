@@ -11,19 +11,18 @@ import android.widget.TextView
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
-import java.util.*
 
 class MoveList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_move_list)
         val intent = intent
-        val charactername = intent.getStringExtra(MainActivity.EXTRA_CHARACTER_NAME)
+        val characterfile = intent.getStringExtra(MainActivity.EXTRA_CHARACTER_NAME)
         val game = intent.getStringExtra(MainActivity.EXTRA_GAME_NAME)
-        supportActionBar!!.title = charactername
+        supportActionBar!!.title = characterfile?.dropLast(4)
 
         val table = findViewById<View>(R.id.table_moves) as TableLayout
-        val ir = BufferedReader(InputStreamReader(assets.open(game + "_framedata/" + charactername + ".csv")))
+        val ir = BufferedReader(InputStreamReader(assets.open(game + "_framedata/" + characterfile)))
 
         try {
             var line: String

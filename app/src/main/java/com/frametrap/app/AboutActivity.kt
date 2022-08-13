@@ -1,7 +1,5 @@
 package com.frametrap.app
 
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
