@@ -3,8 +3,6 @@ package com.frametrap.app
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +12,7 @@ import java.io.InputStreamReader
 
 class MoveList : AppCompatActivity() {
     private lateinit var movelistRecyclerView: RecyclerView
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +22,13 @@ class MoveList : AppCompatActivity() {
         val characterfile = intent.getStringExtra(MainActivity.EXTRA_CHARACTER_NAME)
         val game = intent.getStringExtra(MainActivity.EXTRA_GAME_NAME)
 
-
+        toolbar = findViewById(R.id.toolbar_movelist)
+        //setSupportActionBar(toolbar)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+        toolbar.setPadding(0, 200, 0, 0)
+        Log.d("MoveList", "StatusBarHeight:" + getStatusBarHeight())
 
         //val table = findViewById<View>(R.id.table_moves) as TableLayout
         val ir = BufferedReader(InputStreamReader(assets.open(game + "_framedata/" + characterfile)))
@@ -83,5 +88,13 @@ class MoveList : AppCompatActivity() {
                 table.addView(currentRow)*/
 
 
+    }
+    private fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = resources.getDimensionPixelSize(resourceId)
+        }
+        return result
     }
 }

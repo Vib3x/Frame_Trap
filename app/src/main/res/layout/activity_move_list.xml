@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="0,1,2,3,4"
     tools:context=".MoveList">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -12,18 +11,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <include
-            android:id="@+id/app_bar_movelist"
-            layout="@layout/app_bar_movelist"/>
 
-        <!--<android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <androidx.appcompat.widget.Toolbar
+            android:layout_alignParentTop="true"
+            app:layout_scrollFlags="scroll|enterAlways"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            android:id="@+id/toolbar_movelist"
+            tools:context=".MoveList">
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
