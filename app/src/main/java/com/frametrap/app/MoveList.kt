@@ -22,7 +22,8 @@ class MoveList : AppCompatActivity() {
         val intent = intent
         val characterfile = intent.getStringExtra(MainActivity.EXTRA_CHARACTER_NAME)
         val game = intent.getStringExtra(MainActivity.EXTRA_GAME_NAME)
-        supportActionBar!!.title = characterfile?.dropLast(4)
+
+
 
         //val table = findViewById<View>(R.id.table_moves) as TableLayout
         val ir = BufferedReader(InputStreamReader(assets.open(game + "_framedata/" + characterfile)))
@@ -34,19 +35,10 @@ class MoveList : AppCompatActivity() {
             line = ir.readLine() ?: break
             //val currentRow = TableRow(this)
             val row = line.split(",").toTypedArray()
-            val move = MoveModel(row[0], row[1], row[2], row[3], row[4])
+            val move = MoveModel(row[0], row[1], row[2], row[3], row[4], row[5])
             movelist.add(move)
         }
-        val view: TextView = findViewById<TextView>(R.id.move_name_header)
-        view.measure(0,0)
-        val movenamewidth: Int = view.measuredWidth
-        val startupwidth: Int = findViewById<TextView>(R.id.startup_header).measuredWidth
-        val activewidth: Int = findViewById<TextView>(R.id.active_header).measuredWidth
-        val recoverywidth: Int = findViewById<TextView>(R.id.recovery_header).measuredWidth
-        val onblockwidth: Int = findViewById<TextView>(R.id.onblock_header).measuredWidth
-        Log.d("MoveList", "movenamewidth: " + movenamewidth)
-        Log.d("MoveList", "startupwidth: " + startupwidth)
-        val movelistrecyclerviewadapter = MoveListRecyclerViewAdapter(movelist, movenamewidth, startupwidth, activewidth, recoverywidth, onblockwidth)
+        val movelistrecyclerviewadapter = MoveListRecyclerViewAdapter(movelist)
         movelistRecyclerView.setHasFixedSize(true)
         movelistRecyclerView.adapter = movelistrecyclerviewadapter
         movelistRecyclerView.apply { layoutManager = LinearLayoutManager(context) }

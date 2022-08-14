@@ -6,15 +6,16 @@
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/activity_character_list.xml" value="0.25317028985507245" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2598958333333333" />
-        <entry key="app/src/main/res/layout/activity_move_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_move_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.1171875" />
-        <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.1171875" />
+        <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/app_bar_movelist.xml" value="0.2598958333333333" />
         <entry key="app/src/main/res/layout/character_list_row.xml" value="0.33" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/data_table.xml" value="0.201171875" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/game_spinner.xml" value="0.2598958333333333" />
-        <entry key="app/src/main/res/layout/move_list_row.xml" value="0.25885416666666666" />
+        <entry key="app/src/main/res/layout/move_list_row.xml" value="0.5" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/table.xml" value="0.12588652482269502" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />

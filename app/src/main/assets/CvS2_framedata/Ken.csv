@@ -16,21 +16,21 @@ c.HK,4,9,11,+4,normal
 2LK,3,4,8,+5,normal
 2MK,4,6,17,-1,normal
 2HK,6,6,35,-15,normal
-j.LP,3,22,0,,normal
-j.MP,4,10,0,,normal
-j.HP,5,6,0,,normal
-j.LK,4,22,0,,normal
-6/9MK,5,10,0,,normal
-8MK,6,7,0,,normal
-6/9HK,3,8,0,,normal
-8HK,6,7,0,,normal
+j.LP,3,22,0,-,normal
+j.MP,4,10,0,-,normal
+j.HP,5,6,0,-,normal
+j.LK,4,22,0,-,normal
+6/9MK,5,10,0,-,normal
+8MK,6,7,0,-,normal
+6/9HK,3,8,0,-,normal
+8HK,6,7,0,-,normal
 6HK,12,7,22,-3,normal
-HP Throw,3,1,13,,throw
-HK Throw,5,1,13,,throw
-j.HK Throw,1,1,,,throw
-236 + LP,14,,43,-10,special
-236 + MP,14,,44,-11,special
-236 + HP,14,,45,-12,special
+HP Throw,3,1,13,-,throw
+HK Throw,5,1,13,-,throw
+j.HK Throw,1,1,-,-,throw
+236 + LP,14,-,43,-10,special
+236 + MP,14,-,44,-11,special
+236 + HP,14,-,45,-12,special
 623 + LP,2,18,24,-18,special
 623 + MP,2,24,32,-32,special
 623 + HP,2,30,39,-41,special
@@ -45,9 +45,9 @@ j.214 + K,4,14,0,13,special
 41236 + MK,5,7,27,-8,special
 41236 + HK,10,4,27,-7,special
 41236 + K>[K],26,2,23,-2,special
-214 + LP,7,18,10,,special
-214 + MP,8,24,10,,special
-214 + HP,9,30,10,,special
+214 + LP,7,18,10,-,special
+214 + MP,8,24,10,-,special
+214 + HP,9,30,10,-,special
 236236 + LP,4:4,56,26,-28,super
 236236 + MP,4:4,59,37,-39,super
 236236 + HP,4:4,77,37,-39,super
