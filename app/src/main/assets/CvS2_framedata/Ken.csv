@@ -28,30 +28,30 @@ j.LK,4,22,0,,normal
 HP Throw,3,1,13,,throw
 HK Throw,5,1,13,,throw
 j.HK Throw,1,1,,,throw
-236+LP,14,,43,-10,special
-236+MP,14,,44,-11,special
-236+HP,14,,45,-12,special
-623+LP,2,18,24,-18,special
-623+MP,2,24,32,-32,special
-623+HP,2,30,39,-41,special
-214+LK,2,16,17,-9,special
-214+MK,2,39,17,-33,special
-214+HK,2,48,17,-41,special
-j.214+K,4,14,0,13,special
-421+LK,21,17,24,-11,special
-421+MK,29,12,24,-5,special
-421+HK,34,10,24,-4,special
-41236+LK,10,5,17,+2,special
-41236+MK,5,7,27,-8,special
-41236+HK,10,4,27,-7,special
-41236+K>[K],26,2,23,-2,special
-214+LP,7,18,10,,special
-214+MP,8,24,10,,special
-214+HP,9,30,10,,special
-236236+LP,4:4,56,26,-28,super
-236236+MP,4:4,59,37,-39,super
-236236+HP,4:4,77,37,-39,super
-236236+LK,4:4,26,29,-10,super
-236236+MK,4:4,29,31,-20,super
-236236+HK,4:4,32,34,-27,super
-214214+K,4:4,75,60,-65,super
+236 + LP,14,,43,-10,special
+236 + MP,14,,44,-11,special
+236 + HP,14,,45,-12,special
+623 + LP,2,18,24,-18,special
+623 + MP,2,24,32,-32,special
+623 + HP,2,30,39,-41,special
+214 + LK,2,16,17,-9,special
+214 + MK,2,39,17,-33,special
+214 + HK,2,48,17,-41,special
+j.214 + K,4,14,0,13,special
+421 + LK,21,17,24,-11,special
+421 + MK,29,12,24,-5,special
+421 + HK,34,10,24,-4,special
+41236 + LK,10,5,17,+2,special
+41236 + MK,5,7,27,-8,special
+41236 + HK,10,4,27,-7,special
+41236 + K>[K],26,2,23,-2,special
+214 + LP,7,18,10,,special
+214 + MP,8,24,10,,special
+214 + HP,9,30,10,,special
+236236 + LP,4:4,56,26,-28,super
+236236 + MP,4:4,59,37,-39,super
+236236 + HP,4:4,77,37,-39,super
+236236 + LK,4:4,26,29,-10,super
+236236 + MK,4:4,29,31,-20,super
+236236 + HK,4:4,32,34,-27,super
+214214 + K,4:4,75,60,-65,super

@@ -75,22 +75,7 @@ class MainActivity : AppCompatActivity() {
                         game = "CvS2"
                     }
                 }
-                //Load Characterlist
-                val characterfiles: Array<String>? = assets?.list(game + "_framedata")
-                val characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterfiles)
-                characterRecyclerView.adapter = characterrecyclerviewadapter
-                characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 2) }
-                //Set OnClickListeners
-                characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
-                    override fun onItemClick(position: Int) {
-                        //Switch view to movelist
-                        val intent = Intent(context, MoveList::class.java)
-                        intent.putExtra(EXTRA_CHARACTER_NAME, characterfiles?.get(position))
-                        intent.putExtra(EXTRA_GAME_NAME, game)
-                        startActivity(intent)
-                    }
-
-                })
+                loadcharacterlist()
                 //save selection
                 prefeditor.putInt("lastSelection", position).commit()
             }
@@ -114,6 +99,24 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    private fun loadcharacterlist() {
+        val characterfiles: Array<String>? = assets?.list(game + "_framedata")
+        val characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterfiles)
+        characterRecyclerView.adapter = characterrecyclerviewadapter
+        characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 2) }
+        //Set OnClickListeners
+        characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                //Switch view to movelist
+                val intent = Intent(context, MoveList::class.java)
+                intent.putExtra(EXTRA_CHARACTER_NAME, characterfiles?.get(position))
+                intent.putExtra(EXTRA_GAME_NAME, game)
+                startActivity(intent)
+            }
+
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
