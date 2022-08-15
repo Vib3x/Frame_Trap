@@ -1,12 +1,15 @@
 package com.frametrap.app
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.nio.channels.AsynchronousFileChannel.open
 
-class CharacterRecyclerViewAdapter(private val characterfileslist: Array<String>?): RecyclerView.Adapter<CharacterRecyclerViewAdapter.ViewHolder>() {
+class CharacterRecyclerViewAdapter(private val characterlist: ArrayList<CharacterModel>): RecyclerView.Adapter<CharacterRecyclerViewAdapter.ViewHolder>() {
 
     private lateinit var clicklistener: OnItemClickListener
 
@@ -24,16 +27,21 @@ class CharacterRecyclerViewAdapter(private val characterfileslist: Array<String>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = characterfileslist?.get(position)?.dropLast(4)
+        holder.textView.text = characterlist[position].name_West
+        when (characterlist[position].name_West) {
+            "Akihiko Sanada" -> holder.imageView.setImageResource(R.drawable.akihiko)
+            else -> holder.imageView.setImageResource(R.drawable.ic_launcher_background)
+        }
     }
 
     override fun getItemCount(): Int {
-        return characterfileslist!!.size
+        return characterlist.size
     }
 
     class ViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         //val imageView: ImageView = itemView.findViewById(R.id.imageview)
         val textView: TextView = itemView.findViewById(R.id.charactertextView)
+        val imageView: ImageView = itemView.findViewById(R.id.character_image)
 
         init {
             itemView.setOnClickListener {

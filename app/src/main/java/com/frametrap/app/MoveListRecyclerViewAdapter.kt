@@ -3,6 +3,7 @@ package com.frametrap.app
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,6 +21,7 @@ class MoveListRecyclerViewAdapter(private val movelist: ArrayList<MoveModel>): R
         holder.recoverytextView.text = movelist[position].recovery
         holder.onblocktextView.text = movelist[position].onBlock
         holder.movetypetextView.text = movelist[position].movetype
+        holder.moveimageView.setImageResource(R.drawable.ic_launcher_background)
     }
 
     override fun getItemCount(): Int {
@@ -34,6 +36,7 @@ class MoveListRecyclerViewAdapter(private val movelist: ArrayList<MoveModel>): R
         val recoverytextView: TextView = itemView.findViewById(R.id.recovery_textView)
         val onblocktextView: TextView = itemView.findViewById(R.id.onblock_textView)
         val movetypetextView: TextView = itemView.findViewById(R.id.move_type_textView)
+        val moveimageView: ImageView = itemView.findViewById(R.id.move_imageView)
 
     }
 }

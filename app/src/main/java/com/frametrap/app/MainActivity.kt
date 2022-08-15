@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frametrap.app.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var gamespinner: Spinner
-    private lateinit var game: String
+    private lateinit var dir: String
     private lateinit var characterRecyclerView: RecyclerView
     private lateinit var context: Context
 
@@ -37,10 +39,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
+        /*binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "not functional yet", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-        }
+        }*/
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -56,23 +58,27 @@ class MainActivity : AppCompatActivity() {
 
         //setup game selection spinner and save selection
         val lastSelection: Int = sharedPreferences.getInt("lastSelection", 0)
-        gamespinner.adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, arrayOf("Capcom vs. SNK 2", "Jojo's Bizarre Adventure"))
+        gamespinner.adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, arrayOf("Capcom vs. SNK 2", "Jojo's Bizarre Adventure", "Persona 4 Arena Ultimax 2.0"))
         gamespinner.setSelection(lastSelection)
         gamespinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when (id) {
                     0L -> {
                         supportActionBar!!.title = "Capcom vs. SNK 2"
-                        game = "CvS2"
+                        dir = "cvs2"
                     }
                     1L -> {
                         supportActionBar!!.title = "Jojo's Bizarre Adventure"
-                        game = "jojoban"
+                        dir = "jojo"
+                    }
+                    2L -> {
+                        supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
+                        dir = "p4au"
                     }
                     else -> {
                         // in case nothing is selected
                         supportActionBar!!.title = "Capcom vs. SNK 2"
-                        game = "CvS2"
+                        dir = "cvs2"
                     }
                 }
                 loadcharacterlist()
@@ -102,17 +108,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadcharacterlist() {
-        val characterfiles: Array<String>? = assets?.list(game + "_framedata")
-        val characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterfiles)
+        //read characters file
+        val ir = BufferedReader(InputStreamReader(assets.open("$dir/characters.csv")))
+        val characterlist: ArrayList<CharacterModel> = ArrayList()
+        var line: String
+        while (true) {
+            line = ir.readLine() ?: break
+            val row = line.split(",").toTypedArray()
+            val character = CharacterModel(row[0], row[1], row[2])
+            characterlist.add(character)
+        }
+        //val characterfiles: Array<String>? = assets?.list(dir)
+        val characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterlist)
         characterRecyclerView.adapter = characterrecyclerviewadapter
-        characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 2) }
+        characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 3) }
         //Set OnClickListeners
         characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
             override fun onItemClick(position: Int) {
                 //Switch view to movelist
                 val intent = Intent(context, MoveList::class.java)
-                intent.putExtra(EXTRA_CHARACTER_NAME, characterfiles?.get(position))
-                intent.putExtra(EXTRA_GAME_NAME, game)
+                intent.putExtra(EXTRA_CHARACTER_FILE, characterlist[position].file)
+                intent.putExtra(EXTRA_GAME_DIR, dir)
                 startActivity(intent)
             }
 
@@ -132,7 +148,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_CHARACTER_NAME = "com.frametrap.app.extra_character_name"
-        const val EXTRA_GAME_NAME = "com.frametrap.app.extra_game_name"
+        const val EXTRA_CHARACTER_FILE = "com.frametrap.app.extra_character_file"
+        const val EXTRA_GAME_DIR = "com.frametrap.app.extra_game_dir"
     }
 }
