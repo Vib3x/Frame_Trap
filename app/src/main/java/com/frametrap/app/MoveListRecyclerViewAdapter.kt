@@ -35,13 +35,12 @@ class MoveListRecyclerViewAdapter(private val movelist: ArrayList<MoveModel>): R
                 }
             }
         }*/
-        val new: String = startup.replace(";","\n")
-        holder.startuptextView.text = new.replace("?","\t")
-        holder.activetextView.text = movelist[position].active
-        holder.recoverytextView.text = movelist[position].recovery
-        holder.onblocktextView.text = movelist[position].onBlock
-        holder.movetypetextView.text = movelist[position].movetype
-        holder.moveimageView.setImageResource(R.drawable.ic_launcher_background)
+        holder.startuptextView.text = movelist[position].startup.replace(";","\n").replace("?","\t")
+        holder.activetextView.text = movelist[position].active.replace(";","\n").replace("?","\t")
+        holder.recoverytextView.text = movelist[position].recovery.replace(";","\n").replace("?","\t")
+        holder.onblocktextView.text = movelist[position].onBlock.replace(";","\n").replace("?","\t")
+        holder.movetypetextView.text = movelist[position].movetype.replace(";","\n").replace("?","\t")
+        holder.moveimageView.setImageResource(R.drawable.akihiko_cycloneuppercut)
     }
 
     override fun getItemCount(): Int {
