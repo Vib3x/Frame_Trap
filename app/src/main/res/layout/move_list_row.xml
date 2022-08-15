@@ -53,7 +53,6 @@
                 android:id="@+id/move_type_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="30pt"
                 android:gravity="end"
                 android:text="Movetype"
                 android:textSize="14sp"

@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         //val characterfiles: Array<String>? = assets?.list(dir)
         val characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterlist)
         characterRecyclerView.adapter = characterrecyclerviewadapter
-        characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 3) }
+        characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 2) }
         //Set OnClickListeners
         characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
             override fun onItemClick(position: Int) {
