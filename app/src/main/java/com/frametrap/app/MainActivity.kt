@@ -58,27 +58,23 @@ class MainActivity : AppCompatActivity() {
 
         //setup game selection spinner and save selection
         val lastSelection: Int = sharedPreferences.getInt("lastSelection", 0)
-        gamespinner.adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, arrayOf("Capcom vs. SNK 2", "Jojo's Bizarre Adventure", "Persona 4 Arena Ultimax 2.0"))
+        gamespinner.adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, arrayOf("Persona 4 Arena Ultimax 2.0", "Capcom vs. SNK 2"))
         gamespinner.setSelection(lastSelection)
         gamespinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 when (id) {
                     0L -> {
-                        supportActionBar!!.title = "Capcom vs. SNK 2"
-                        dir = "cvs2"
-                    }
-                    1L -> {
-                        supportActionBar!!.title = "Jojo's Bizarre Adventure"
-                        dir = "jojo"
-                    }
-                    2L -> {
                         supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
                         dir = "p4au"
                     }
-                    else -> {
-                        // in case nothing is selected
+                    1L -> {
                         supportActionBar!!.title = "Capcom vs. SNK 2"
                         dir = "cvs2"
+                    }
+                    else -> {
+                        // in case nothing is selected
+                        supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
+                        dir = "p4au"
                     }
                 }
                 loadcharacterlist()
@@ -109,12 +105,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadcharacterlist() {
         //read characters file
-        val ir = BufferedReader(InputStreamReader(assets.open("$dir/characters.csv")))
+        val ir = BufferedReader(InputStreamReader(assets.open("$dir/characters.tsv")))
         val characterlist: ArrayList<CharacterModel> = ArrayList()
         var line: String
         while (true) {
             line = ir.readLine() ?: break
-            val row = line.split(",").toTypedArray()
+            val row = line.split("\t").toTypedArray()
             val character = CharacterModel(row[0], row[1], row[2])
             characterlist.add(character)
         }
