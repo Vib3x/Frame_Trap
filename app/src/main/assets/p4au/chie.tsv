@@ -13,9 +13,9 @@ j.2B	9	3	12	-	Normal
 5DD	39	2 (3) 2 (6) 2 (7) 2×15 (9) 3	61	+63	Persona
 2C	19	3 (7) 2	20	-5	Persona
 2D	26	7 (11) 3	56	+8	Persona
-2DD	26	"2 (7) 2×15 (9) 3 "	56	+40	Persona
+2DD	26	2 (7) 2×15 (9) 3	56	+40	Persona
 j.C	11	4	11	-	Persona
-j.D	24	"2×12 (13) 3 "	52	-	Persona
+j.D	24	2×12 (13) 3	52	-	Persona
 C+D	5	3	23	-	Throw
 j.C+D	4	3	12	-	Throw
 5A+B	26	1	32	-14	Universal
@@ -24,11 +24,11 @@ B+D	Guard:?-;Attack:?7	Guard:?-;Attack:?2 (10) 2 (6) 2 (6) 2 (6) 2	Guard:?24;Att
 j.B+D	6	2 (6) 2 (6) 2 (6) 2	UL + 15	-	Universal
 6A+B (Guard Cancel)	15	6	30	-19	Universal
 236A	11	2 (6) 3 (6) 3	3 + 17L	-8	Skill
-236B	19	"2 (6) 3 (6) 3 (6) 3 (6) 3 "	1 + 13L	+2	Skill
-236A+B	12	"2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2 "	11L	+6	Skill
+236B	19	2 (6) 3 (6) 3 (6) 3 (6) 3	1 + 13L	+2	Skill
+236A+B	12	2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2	11L	+6	Skill
 j.236A	6	2 (6) 3 (6) 3	17L	-8	Skill
-j.236B	9	"2 (6) 3 (6) 3 (6) 3 (6) 3 "	12L	-	Skill
-j.236A+B	7	"2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2 "	UL + 11	-	Skill
+j.236B	9	2 (6) 3 (6) 3 (6) 3 (6) 3	12L	-	Skill
+j.236A+B	7	2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2	UL + 11	-	Skill
 236A/B (air OK) > 236A	6	2 (9) 3	26	-12	Skill
 236A/B (air OK) > 236B	10	2 (9) 3	21	-7	Skill
 236A/B (air OK) > 236A+B	5	2 (9) 3	21	-7	Skill
@@ -55,11 +55,3 @@ j.236C+D	13	12	9 + 9L	-	Persona, Skill
 214214D	11 + 41SF + 15	-	34	-	Persona, Aw. SP Skill
 214214C+D	11 + 41SF + 7	-	34	-	Persona, Aw. SP Skill
 222C+D	13 + 30SF + 51	15	73	-62	Persona, Instant Kill
-					
-					
-					
-					
-					
-					
-					
-					
