@@ -28,10 +28,6 @@ class CharacterRecyclerViewAdapter(private val characterlist: ArrayList<Characte
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = characterlist[position].name_West
-        when (characterlist[position].name_West) {
-            "Akihiko Sanada" -> holder.imageView.setImageResource(R.drawable.akihiko)
-            else -> holder.imageView.setImageResource(R.drawable.ic_launcher_background)
-        }
     }
 
     override fun getItemCount(): Int {
@@ -41,7 +37,7 @@ class CharacterRecyclerViewAdapter(private val characterlist: ArrayList<Characte
     class ViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         //val imageView: ImageView = itemView.findViewById(R.id.imageview)
         val textView: TextView = itemView.findViewById(R.id.charactertextView)
-        val imageView: ImageView = itemView.findViewById(R.id.character_image)
+        //val imageView: ImageView = itemView.findViewById(R.id.character_image)
 
         init {
             itemView.setOnClickListener {

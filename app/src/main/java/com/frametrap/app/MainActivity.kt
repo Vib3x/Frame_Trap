@@ -12,12 +12,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.frametrap.app.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
-import java.io.BufferedReader
-import java.io.InputStreamReader
+import java.io.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -71,18 +70,15 @@ class MainActivity : AppCompatActivity() {
                         supportActionBar!!.title = "Capcom vs. SNK 2"
                         dir = "cvs2"
                     }
-                    else -> {
-                        // in case nothing is selected
-                        supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
-                        dir = "p4au"
-                    }
                 }
                 loadcharacterlist()
                 //save selection
                 prefeditor.putInt("lastSelection", position).commit()
             }
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
+                //fallback
+                supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
+                dir = "p4au"
             }
         }
 
@@ -104,31 +100,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadcharacterlist() {
-        //read characters file
-        val ir = BufferedReader(InputStreamReader(assets.open("$dir/characters.tsv")))
+        var inputStream: InputStream? = null
         val characterlist: ArrayList<CharacterModel> = ArrayList()
-        var line: String
-        while (true) {
-            line = ir.readLine() ?: break
-            val row = line.split("\t").toTypedArray()
-            val character = CharacterModel(row[0], row[1], row[2])
-            characterlist.add(character)
-        }
-        //val characterfiles: Array<String>? = assets?.list(dir)
-        val characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterlist)
-        characterRecyclerView.adapter = characterrecyclerviewadapter
-        characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 2) }
-        //Set OnClickListeners
-        characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int) {
-                //Switch view to movelist
-                val intent = Intent(context, MoveList::class.java)
-                intent.putExtra(EXTRA_CHARACTER_FILE, characterlist[position].file)
-                intent.putExtra(EXTRA_GAME_DIR, dir)
-                startActivity(intent)
+        try {
+            inputStream = assets.open("$dir/characters.tsv")
+            val reader = inputStream.bufferedReader()
+            var line: String
+            while (true) {
+                line = reader.readLine() ?: break
+                val row = line.split("\t").toTypedArray()
+                val character = CharacterModel(row[0], row[1], row[2])
+                characterlist.add(character)
             }
+            val characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterlist)
+            characterRecyclerView.adapter = characterrecyclerviewadapter
+            characterRecyclerView.apply { layoutManager = GridLayoutManager(context, 2) }
+            //Set OnClickListeners
+            characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
+                override fun onItemClick(position: Int) { openmovelist(characterlist[position].file) }
+            })
+        } catch (ex: IOException) {
+            Toast.makeText(this, "Characterfile does not exist!", Toast.LENGTH_SHORT).show()
+        } finally {
+            inputStream?.close()
+        }
+    }
 
-        })
+    private fun openmovelist(characterfile: String){
+        val intent = Intent(context, MoveList::class.java)
+        intent.putExtra(EXTRA_CHARACTER_FILE, characterfile)
+        intent.putExtra(EXTRA_GAME_DIR, dir)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

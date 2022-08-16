@@ -40,7 +40,6 @@ class MoveListRecyclerViewAdapter(private var movelist: ArrayList<MoveModel>): R
         holder.recoverytextView.text = movelist[position].recovery.replace(";","\n").replace("?","\t")
         holder.onblocktextView.text = movelist[position].onBlock.replace(";","\n").replace("?","\t")
         holder.movetypetextView.text = movelist[position].movetype.replace(";","\n").replace("?","\t")
-        holder.moveimageView.setImageResource(R.drawable.akihiko_cycloneuppercut)
     }
 
     override fun getItemCount(): Int {
@@ -60,7 +59,5 @@ class MoveListRecyclerViewAdapter(private var movelist: ArrayList<MoveModel>): R
         val recoverytextView: TextView = itemView.findViewById(R.id.recovery_textView)
         val onblocktextView: TextView = itemView.findViewById(R.id.onblock_textView)
         val movetypetextView: TextView = itemView.findViewById(R.id.move_type_textView)
-        val moveimageView: ImageView = itemView.findViewById(R.id.move_imageView)
-
     }
 }

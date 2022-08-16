@@ -1,19 +1,22 @@
 package com.frametrap.app
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.text.toLowerCase
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStream
 import java.io.InputStreamReader
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class MoveList : AppCompatActivity() {
@@ -36,25 +39,11 @@ class MoveList : AppCompatActivity() {
         context = this
         toolbar = findViewById(R.id.toolbar_movelist)
         movelistRecyclerView = findViewById(R.id.move_list_recyclerview)
+        editText = findViewById(R.id.movelist_edittext)
 
-        toolbar.setNavigationOnClickListener { onBackPressed()}
+        toolbar.setNavigationOnClickListener { onBackPressed() }
         toolbar.setPadding(0, 200, 0, 0)
 
-        val ir = BufferedReader(InputStreamReader(assets.open("$dir/$characterfile")))
-        movelist = ArrayList()
-        var line: String
-        while (true) {
-            line = ir.readLine() ?: break
-            val row = line.split("\t").toTypedArray()
-            val move = MoveModel(row[0], row[1], row[2], row[3], row[4], row[5])
-            movelist.add(move)
-        }
-        movelistrecyclerviewadapter = MoveListRecyclerViewAdapter(movelist)
-        movelistRecyclerView.setHasFixedSize(true)
-        movelistRecyclerView.adapter = movelistrecyclerviewadapter
-        movelistRecyclerView.apply { layoutManager = LinearLayoutManager(context) }
-
-        editText = findViewById(R.id.movelist_edittext)
         editText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -66,6 +55,32 @@ class MoveList : AppCompatActivity() {
                 filter(p0.toString())
             }
         })
+
+        loadmovelist(this, dir, characterfile)
+    }
+
+    private fun loadmovelist(cntxt: Context, dir: String?, characterfile:String?){
+        var inputStream: InputStream? = null
+        try {
+            inputStream = assets.open("$dir/$characterfile")
+            val reader = inputStream.bufferedReader()
+            movelist = ArrayList()
+            var line: String
+            while (true) {
+                line = reader.readLine() ?: break
+                val row = line.split("\t").toTypedArray()
+                val move = MoveModel(row[0], row[1], row[2], row[3], row[4], row[5])
+                movelist.add(move)
+            }
+            movelistrecyclerviewadapter = MoveListRecyclerViewAdapter(movelist)
+            movelistRecyclerView.setHasFixedSize(true)
+            movelistRecyclerView.adapter = movelistrecyclerviewadapter
+            movelistRecyclerView.apply { layoutManager = LinearLayoutManager(cntxt) }
+        } catch (ex: IOException) {
+            Toast.makeText(this, "Characterfile does not exist!", Toast.LENGTH_SHORT).show()
+        } finally {
+            inputStream?.close()
+        }
     }
 
     private fun filter(text: String) {
