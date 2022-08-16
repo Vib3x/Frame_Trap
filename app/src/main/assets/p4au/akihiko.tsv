@@ -1,51 +1,51 @@
-5A	5	2	11	0	Normal
-5AA	9	2	15	-2	Normal
-5AAA	11	3	20	-8	Normal
-5B	6	3 (3) 3	20	-4	Normal
-2A	5	2	11	-2	Normal
-2B	7	3	27	-15	Normal
-j.A	7	2	11	-	Normal
-j.B	9	3 (3) 3	15	-	Normal
-5C	25 [30]	5	19 [14]	-5 [0]	Persona
-5D	24 (Pull in)	-	29	-	Persona
-2C	19	4	27	-	Persona
-2D	24 (Pull in)	-	29	-	Persona
-j.C	28	4	29 + 10L	-	Persona
-j.D	24 (Pull in)	-	48	-	Persona
-C+D	5	3	25	-	Throw
-j.C+D	4	3	19	-	Throw
-5A+B	Lv0:?30;Lv1:?29;Lv2:?28;Lv3:?27;Lv4:?26;Lv5:?25	2	7 + 24L	-14	Universal
-2A+B	13	5	Lv0:?20;Lv1-5:?18	Lv0:?-8;Lv1-5:?-6	Universal
-B+D	Lv0:?10;Lv1-2:?9;Lv3-4:?8;Lv5:?7	3 (4) 3	38	-24	Universal
-6A+B (Guard Cancel)	16	3	27	-13	Universal
-236A	11~15	1 {(2) 1}×3 (3) 3	24	-4	Skill
-236B	21~26	1 {(2) 1}×5 (3) 3	28	-8	Skill
-236A+B	11	1 {(2) 1}×9 (3) 3	28	-8	Skill
-Cyclone > 4A	13	3	18	-6	Skill
-Cyclone > 4b	21 [41]	3	15	+4	Skill
-Cyclone > 4AB	23	3	26	+1	Skill
-Cyclone > 6A	6	6	34	-18	Skill
-Cyclone > 6B	9	6	40	-24	Skill
-Cyclone > 6AB	15	6	34	-18	Skill
-Cyclone > 8A	13	4	18	-7	Skill
-Cyclone > 8B	21	4	26	-13	Skill
-Cyclone > 8AB	23	4	20	-4	Skill
-236C	-	-	25	-	Skill
-236D	-	-	40	-	Skill
-236C+D	-	-	22	-	Skill
-214C	-	-	24	-	Skill
-214D	-	-	41	-	Skill
-214C+D	-	-	41	-	Skill
-214A	-	-	33	-	Skill
-214B	-	-	54	-	Skill
-214A+B	-	-	43	-	Skill
-236236A	4 + 33SF + 3	Lv0:?3 (6) 12;Lv1-2:?3 (6) 4, 8;Lv3-4:?3 (6) 2, 2, 2, 6;Lv5:?3 (6) 12	Lv0:?22 + 15L;Lv1-2:?28 + 15L;Lv3-4:?36 + 15L;Lv5:?27 + 42L	Lv0:?-39;Lv1-2:?-45,8;Lv3-4:?-53;Lv5:?-71	SP Skill
-236236B	8 + 33SF + 4	Lv0:?3 (6) 4, 2, 6;Lv1-2:?3 (6) 2, 2, 2, 3, 3;Lv3-4:?3 (6) 2×8, 1×7;Lv5:?3 (6) 12	Lv0:?23 + 20L;Lv1-2:?26 + 20L;Lv3-4:?33 + 20L;Lv5:?61 + 20L	Lv0:?-45;Lv1-2:?-48,8;Lv3-4:?-55;Lv5:?-94	SP Skill
-236236A+B	3 + 33SF + 4	Lv0:?3 (6) 2 (16 + 15L) 2;Lv1-2:?3 (6) 2 (16 + 10L)6, 4, 8;Lv3-4:?3 (6) 2 (16 + 10L) 6, 2, 1×7, 3;Lv5:?3 (6) 2 (16 + 10L) 6, 2, 2, 2, 3, 3 (21 + 24L) 9, 12	Lv0:?31 + 20L;Lv1-2:?22 + 20L;Lv3-4:?33 + 20L;Lv5:?38 + 42L	Lv0:?-34;Lv1-2:?-41,8;Lv3-4:?-46;Lv5:?-73	SP Skill
-236236C	-	-	4 + 40SF + 8	-	Persona, SP Skill
-236236D	-	-	4 + 60SF + 23	-	Persona, SP Skill
-236236C+D	4 + 60SF + 4	3	-	-18	Persona, SP Skill
-214214C	4 + 40SF + 17	Lv0:?1 {(1) 1}×15;Lv1-4:?1 {(1) 1}×31;Lv5:?1 {(1) 1}×39	-	Lv0:?-53;Lv1-4:?-35;Lv5:?-5	Persona, Aw. SP Skill
-214214D	4 + 37SF + 25	Lv0:?1 {(1) 1}×15;Lv1-4:?1 {(1) 1}×31;Lv5:1 {(1) 1}×39	-	Lv0:?-34;Lv1-4:?-6;Lv5:?0	Persona, Aw. SP Skill
-214214C+D	4 + 36SF + 21	Lv0:?1 {(1) 1}×23;Lv1-4:?1 {(1) 1}×39;Lv5:?1 {(1) 1}×47	-	Lv0:?-37;Lv1-4:?-5;Lv5:?+11	Persona, Aw. SP Skill
-222C+D	17 + 54SF + 114	81	96	-	Persona, Instant Kill
+5A	Normal	5	2	11	0
+5AA	Normal	9	2	15	-2
+5AAA	Normal	11	3	20	-8
+5B	Normal	6	3 (3) 3	20	-4
+2A	Normal	5	2	11	-2
+2B	Normal	7	3	27	-15
+j.A	Normal	7	2	11	-
+j.B	Normal	9	3 (3) 3	15	-
+5C	Persona	25 [30]	5	19 [14]	-5 [0]
+5D	Persona	24	-	Total 29	-
+2C	Persona	19	4	27	-
+2D	Persona	24	-	Total 29	-
+j.C	Persona	28	4	29 + 10L	-
+j.D	Persona	24	-	Total 48	-
+C+D	Throw	5	3	25	-
+j.C+D	Throw	4	3	19	-
+5A+B	Universal	Lv0:?30;Lv1:?29;Lv2:?28;Lv3:?27;Lv4:?26;Lv5:?25	2	7 + 24L	-14
+2A+B	Universal	13	5	Lv0:?20;Lv1-5:?18	Lv0:?-8;Lv1-5:?-6
+B+D	Universal	Lv0:?10;Lv1-2:?9;Lv3-4:?8;Lv5:?7	3 (4) 3	38	-24
+6A+B (Guard Cancel)	Universal	16	3	27	-13
+236A	Skill	11~15	1 {(2) 1}×3 (3) 3	24	-4
+236B	Skill	21~26	1 {(2) 1}×5 (3) 3	28	-8
+236A+B	Skill	11	1 {(2) 1}×9 (3) 3	28	-8
+Cyclone > 4A	Skill	13	3	18	-6
+Cyclone > 4b	Skill	21 [41]	3	15	+4
+Cyclone > 4AB	Skill	23	3	26	+1
+Cyclone > 6A	Skill	6	6	34	-18
+Cyclone > 6B	Skill	9	6	40	-24
+Cyclone > 6AB	Skill	15	6	34	-18
+Cyclone > 8A	Skill	13	4	18	-7
+Cyclone > 8B	Skill	21	4	26	-13
+Cyclone > 8AB	Skill	23	4	20	-4
+236C	Skill	-	-	Total 25	-
+236D	Skill	-	-	Total 40	-
+236C+D	Skill	-	-	Total 22	-
+214C	Skill	-	-	Total 24	-
+214D	Skill	-	-	Total 41	-
+214C+D	Skill	-	-	Total 41	-
+214A	Skill	-	-	Total 33	-
+214B	Skill	-	-	Total 54	-
+214A+B	Skill	-	-	Total 43	-
+236236A	SP Skill	4 + 33SF + 3	Lv0:?3 (6) 12;Lv1-2:?3 (6) 4, 8;Lv3-4:?3 (6) 2, 2, 2, 6;Lv5:?3 (6) 12	Lv0:?22 + 15L;Lv1-2:?28 + 15L;Lv3-4:?36 + 15L;Lv5:?27 + 42L	Lv0:?-39;Lv1-2:?-45,8;Lv3-4:?-53;Lv5:?-71
+236236B	SP Skill	8 + 33SF + 4	Lv0:?3 (6) 4, 2, 6;Lv1-2:?3 (6) 2, 2, 2, 3, 3;Lv3-4:?3 (6) 2×8, 1×7;Lv5:?3 (6) 12	Lv0:?23 + 20L;Lv1-2:?26 + 20L;Lv3-4:?33 + 20L;Lv5:?61 + 20L	Lv0:?-45;Lv1-2:?-48,8;Lv3-4:?-55;Lv5:?-94
+236236A+B	SP Skill	3 + 33SF + 4	Lv0:?3 (6) 2 (16 + 15L) 2;Lv1-2:?3 (6) 2 (16 + 10L)6, 4, 8;Lv3-4:?3 (6) 2 (16 + 10L) 6, 2, 1×7, 3;Lv5:?3 (6) 2 (16 + 10L) 6, 2, 2, 2, 3, 3 (21 + 24L) 9, 12	Lv0:?31 + 20L;Lv1-2:?22 + 20L;Lv3-4:?33 + 20L;Lv5:?38 + 42L	Lv0:?-34;Lv1-2:?-41,8;Lv3-4:?-46;Lv5:?-73
+236236C	Persona, SP Skill	-	-	4 + 40SF + 8	-
+236236D	Persona, SP Skill	-	-	4 + 60SF + 23	-
+236236C+D	Persona, Projectile, SP Skill	4 + 60SF + 4	3	Total 41	-18
+214214C	Persona, Projectile Aw. SP Skill	4 + 40SF + 17	Lv0:?1 {(1) 1}×15;Lv1-4:?1 {(1) 1}×31;Lv5:?1 {(1) 1}×39	Total 118	Lv0:?-53;Lv1-4:?-35;Lv5:?-5
+214214D	Persona, Projectile, Aw. SP Skill	4 + 37SF + 25	Lv0:?1 {(1) 1}×15;Lv1-4:?1 {(1) 1}×31;Lv5:1 {(1) 1}×39	Total 111	Lv0:?-34;Lv1-4:?-6;Lv5:?0
+214214C+D	Persona, Projectile, Aw. SP Skill	4 + 36SF + 21	Lv0:?1 {(1) 1}×23;Lv1-4:?1 {(1) 1}×39;Lv5:?1 {(1) 1}×47	Total 122	Lv0:?-37;Lv1-4:?-5;Lv5:?+11
+222C+D	Persona, Projectile, Instant Kill	17 + 54SF + 114	81	96	-

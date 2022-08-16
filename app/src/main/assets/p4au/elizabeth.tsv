@@ -1,0 +1,32 @@
+5A	Normal	8	2	12	-1
+5AA	Normal	12	2×6	23	-9
+5AAA	Normal	10	10 <3×8>	Total 43	-17
+5B	Normal	11	2×3, 1, 5, 1, 2, 2, 2, 2	Total 53	-5
+5BB	Normal	11	1×9	17	-3
+5BBB	Normal	9	1×11, 2	25	-12
+2A	Normal	7	2	12	-3
+2B	Normal	9	18	15 + 10L	-28	Body
+j.A	Normal	7	3	11	-
+j.B	Normal	10	1, 2, 9, 2, 2, 2 	Total 42	-
+j.2B	Normal	9	18	16	-
+5C	Persona	15	1 (17) 1	23	-5
+5D	Persona, Throw	30	6	13	-
+2C	Persona	31	15	18	-7
+2D	Persona	45	52	Total 36	-
+j.C	Persona	13	3	28	-
+j.D	Persona	18	4	20	-
+C+D	Throw	5	3	25	-
+j.C+D	Throw	4	3	19	-
+5A+B	Universal	30	1	32	-14
+2A+B	Universal	11	11	11	-7
+6A+C (Guard Cancel)	Universal	-	-	Total 33	-
+6A+B (Guard Cancel)	Throw, Universal	24	3	29	-
+236A	Persona, Projectile, Skill	Normal:?23;Awakening:?14	Normal:?8;Awakening:?2	Total 64	Normal:?-14;Awakening:?-31
+236B	Persona, Projectile, Skill	Normal:?33;Awakening:?103	Normal:?1, 2×9;Awakening:?2×10	Normal:?Total 60;Awakening:?Total 48	Normal:?+6;Awakening:?-
+236A+B	Persona, Projectile, Skill	Normal:?32;Awakening:?29	Normal:?2×19;Awakening:?2×6, 4, 2×4, 4 (36) 2×6, 4, 2×5	Normal:?Total 84;Awakening:?Total 75	Normal:?+1;Awakening:?+58
+j.236A	Persona, Projectile, Skill	Normal:?23;Awakening:?13	Normal:?7;Awakening:?2	Normal:?Total 62 + 5L;Awakening:?Total 61 + 5L	-
+j.236B	Persona, Projectile, Skill	Normal:?33;Awakening:?103	Normal:?1, 2×9;Awakening:?2×10	Normal:?Total 78 + 5L;Awakening:?Total 54 + 5L	-
+j.236A+B	Persona, Projectile, Skill	Normal:?30;Awakening:?29	Normal:?2×19;Awakening:?2×6, 4, 2×4, 4 (36) 2×6, 4, 2×5	Normal:?Total 84 + 5L;Awakening:?Total 75 + 5L	-
+214A	Persona, Skill	Normal:?21;Awakening:?17	Normal:?1;Awakening:?2, 1	Normal:?Total 59;Awakening:?Total 62	Normal:?-10;Awakening:?-11
+214B	Persona, Projectile, Skill	Normal:?38;Awakening:?36	Normal:?1;Awakening:?2, 1	Total 84	Normal:?-15;Awakening:?-16
+214A+B	Persona, Projectile, Skill	Normal:?28;Awakening:?29	Normal:?2;Awakening:?2×2	Total 71	Normal:?-15;Awakening:?-10

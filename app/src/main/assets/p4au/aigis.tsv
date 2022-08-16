@@ -1,64 +1,64 @@
-5A	5	3	16	-6	Normal
-5AA	10	3	15	-	Normal
-5AAA	9	2	22	-	Normal
-5AAAA	17	-	45	-	Normal
-5B	10	3	25	-13	Normal
-2A	7	4	11	-2	Normal
-2B	Ammo:?7;no Ammo?:9	Ammo:?-;no Ammo:?4	Ammo:?58;no Ammo?:27	Ammo:?-27;no Ammo:?-18	Normal
-j.A	6	2,2,2	14	-	Normal
-j.B	9	8	10	-	Normal
-j.2B	9	-	27+6L	-	Normal
-5C	15	2	32	-15	Persona
-5D	Guard:?-;Attack:?26	Guard:?-;Attack:?18	Guard:?33;Attack:?-	-	Counter, Persona
-2C	19	3	27	-11	Persona
-222C	26	2	21	-4	Persona
-2D	Guard:?-;Attack:?28	Guard:?-;Attack:?3×7	Guard:?36;Attack:?-	-	Counter, Persona
-j.C	8	4(8)6	10	-	Persona
-j.2C	2	2	31	-	Persona
-j.D	Guard:?-;Attack:?26	Guard:?-;Attack:?26	Guard:?24;Attack:?-	-	Counter, Persona
-j.2D	Guard:?-;Attack:?25	Guard:?-;Attack:?3×N	Guard:?24;Attack:?-	-	Counter, Persona
-C+D	5	3	25	-	Throw
-j.C+D	4	3	19	-	Throw
-5A+B	28	5	32	-18	Universal
-2A+B	12	5	16	-6	Universal
-6A+B (Guard Cancel)	16	3	33	-19	Universal
-B+D	10	4	49 + 15L	-51	Universal
-j.B+D	8	4	Landing + 15	-	Universal
-22A	-	-	28	-	Skill
-22B	-	-	21	-	Skill
-22A+B	-	-	Activate:?13;Deactivate:?20	-	Skill
-236A	16	-	35	-5	Skill
-236B	21	-	55	-5	Skill
-236A+B	16	-	53	-3	Skill
-j.236A	19	-	UL + 7	-	Skill
-j.236B	25	-	UL + 7	-	Skill
-j.236A+B	21	-	UL + 7	-	Skill
-214A	29	-	53	-	Skill
-214B	35	-	53	-	Skill
-214A+B	29+32	-	53	-	Skill
-j.214A	29	-	60	-	Skill
-j.214B	29	-	60	-	Skill
-j.214A+B	23+26	-	55	-	Skill
-236C (in Orgia Mode)	15	9×3, 6	7 + 7L	-5	Persona, Skill
-236D (in Orgia Mode)	12	9×3, 3	6 + 9L	-3	Persona, Skill
-236C+D (in Orgia Mode)	13	9×3, 3	4 + 4L	+4	Persona, Skill
-j.236C (in Orgia Mode)	17	9×2, 6	UL + 5	-	Persona, Skill
-j.236D (in Orgia Mode)	12	9×3, 3	UL + 12	-	Persona, Skill
-j.236C+D (in Orgia Mode)	14	9×3, 3	UL + 9	-	Persona, Skill
-214C	21	-	67 + 9L	-	Persona, Skill
-214D	21	-	67 + 9L	-	Persona, Skill
-214C+D	21	-	127 + 9L	-	Persona, Skill
-j.236236A	10 + 54SF + 2~9	3	UL + 9	-	SP Skill
-j.236236B	10 + 54SF + 6~14	3	UL + 9	-	SP Skill
-j.236236A+B	10 + 54SF + 0~14	3	UL + 9	-	SP Skill
-236236C	4 + 58SF + 9	24	35 + 14L	-31	Persona, SP Skill
-236236D	4 + 58SF + 17	24	36 + 14L	-32	Persona, SP Skill
-236236C+D	4 + 58SF + 17	24 (6) 24	35 + 14L	-31	Persona, SP Skill
-j.236236C	4 + 58SF + 9	24	UL + 14	-	Persona, SP Skill
-j.236236D	4 + 58SF + 9	24	UL + 14	-	Persona, SP Skill
-j.236236C+D	4 + 58SF + 9	24	UL + 14	-	Persona, SP Skill
-214214A+B	-	-	3 + 117SF + 3	-	Aw. SP Skill
-214214C	4 + 62SF + 13	60	41 + 9L	+4	Persona, Aw. SP Skill
-214214D	4 + 54SF + 11	4×10	41 + 9L	-7	Persona, Aw. SP Skill
-214214C+D	4 + 64SF + 11	60	48 + 9L	+4	Persona, Aw. SP Skill
-222C+D	1 + 15SF + 50	X(8)X(8)X(8)X(12)X	UL + 29	-	Persona, Instant Kill
+5A	Normal	5	3	16	-6
+5AA	Normal	10	3	15	-
+5AAA	Normal	9	2	22	-
+5AAAA	Normal, Projectile	17	-	Total 45	-
+5B	Normal	10	3	25	-13
+2A	Normal	7	4	11	-2
+2B	Normal, Projectile	Ammo:?7;no Ammo?:9	Ammo:?-;no Ammo:?4	Ammo:?Total 58;no Ammo?:27	Ammo:?-27;no Ammo:?-18
+j.A	Normal	6	2,2,2	14	-
+j.B	Normal	9	8	10	-
+j.2B	Normal, Projectile	9	-	Total 27 + 6L	-
+5C	Persona	15	2	32	-15
+5D	Counter, Persona	Guard:?-;Attack:?26	Guard:?-;Attack:?18	Guard:?Total 33;Attack:?-	-
+2C	Persona	19	3	27	-11
+222C	Persona	26	2	21	-4
+2D	Counter, Persona	Guard:?-;Attack:?28	Guard:?-;Attack:?3×7	Guard:?Total 36;Attack:?-	-
+j.C	Persona	8	4(8)6	10	-
+j.2C	Persona	2	2	31	-
+j.D	Counter, Persona	Guard:?-;Attack:?26	Guard:?-;Attack:?26	Guard:?Total 24;Attack:?-	-
+j.2D	Counter, Persona	Guard:?-;Attack:?25	Guard:?-;Attack:?3×N	Guard:?Total 24;Attack:?-	-
+C+D	Throw	5	3	25	-
+j.C+D	Throw	4	3	19	-
+5A+B	Universal	28	5	32	-18
+2A+B	Universal	12	5	16	-6
+6A+B (Guard Cancel)	Universal	16	3	33	-19
+B+D	Universal	10	4	49 + 15L	-51
+j.B+D	Universal	8	4	Landing + 15	-
+22A	Skill	-	-	Total 28	-
+22B	Skill	-	-	Total 21	-
+22A+B	Skill	-	-	Activate:?Total 13;Deactivate:?Total 20	-
+236A	Skill	16	-	35	-5
+236B	Skill	21	-	55	-5
+236A+B	Skill	16	-	53	-3
+j.236A	Projectile, Skill	19	-	UL + 7	-
+j.236B	Projectile, Skill	25	-	UL + 7	-
+j.236A+B	Projectile, Skill	21	-	UL + 7	-
+214A	Projectile, Skill	29	-	Total 53	-
+214B	Projectile, Skill	35	-	Total 53	-
+214A+B	Projectile, Skill	29+32	-	Total 53	-
+j.214A	Skill	29	-	Total 60	-
+j.214B	Skill	29	-	Total 60	-
+j.214A+B	Skill	23+26	-	Total 55	-
+236C (in Orgia Mode)	Persona, Skill	15	9×3, 6	7 + 7L	-5
+236D (in Orgia Mode)	Persona, Skill	12	9×3, 3	6 + 9L	-3
+236C+D (in Orgia Mode)	Persona, Skill	13	9×3, 3	4 + 4L	+4
+j.236C (in Orgia Mode)	Persona, Skill	17	9×2, 6	UL + 5	-
+j.236D (in Orgia Mode)	Persona, Skill	12	9×3, 3	UL + 12	-
+j.236C+D (in Orgia Mode)	Persona, Skill	14	9×3, 3	UL + 9	-
+214C (in Orgia Mode)	Persona, Projectile, Skill	21	-	Total 67 + 9L	-
+214D (in Orgia Mode)	Persona, Projectile, Skill	21	-	Total 67 + 9L	-
+214C+D (in Orgia Mode)	Persona, Projectile, Skill	21	-	Total 127 + 9L	-
+j.236236A	SP Skill	10 + 54SF + 2~9	3	UL + 9	-
+j.236236B	SP Skill	10 + 54SF + 6~14	3	UL + 9	-
+j.236236A+B	SP Skill	10 + 54SF + 0~14	3	UL + 9	-
+236236C	Persona, SP Skill	4 + 58SF + 9	24	35 + 14L	-31
+236236D	Persona, SP Skill	4 + 58SF + 17	24	36 + 14L	-32
+236236C+D	Persona, SP Skill	4 + 58SF + 17	24 (6) 24	35 + 14L	-31
+j.236236C	Persona, SP Skill	4 + 58SF + 9	24	UL + 14	-
+j.236236D	Persona, SP Skill	4 + 58SF + 9	24	UL + 14	-
+j.236236C+D	Persona, SP Skill	4 + 58SF + 9	24	UL + 14	-
+214214A+B	Aw. SP Skill	-	-	3 + 117SF + 3	-
+214214C	Persona, Projectile, Aw. SP Skill	4 + 62SF + 13	60	Total 41 + 9L	+4
+214214D	Persona, Projectile, Aw. SP Skill	4 + 54SF + 11	4×10	Total 41 + 9L	-7
+214214C+D	Persona, Projectile, Aw. SP Skill	4 + 64SF + 11	60	Total 48 + 9L	+4
+222C+D	Persona, Projectile, Instant Kill	1 + 15SF + 50	X(8)X(8)X(8)X(12)X	UL + 29	-

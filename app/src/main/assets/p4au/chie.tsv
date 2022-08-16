@@ -1,57 +1,57 @@
-5A	5	3	8	-1	Normal
-5AA	7	3 (3) 6	11	-2	Normal
-5AAA	10	2 (12) 3 (10) 3	19	-5	Normal
-5B	7	4	18	-7	Normal
-2A	7	2	12	-3	Normal
-2B	10	2	30	-17	Normal
-j.A	5	4	10	-	Normal
-j.B	8	3	13	-	Normal
-j.BB	7	9	12	-	Normal
-j.2B	9	3	12	-	Normal
-5C	12	3	31	-16	Persona
-5D	39	2 (3) 2 (6) 2 (11) 3	61	+20	Persona
-5DD	39	2 (3) 2 (6) 2 (7) 2×15 (9) 3	61	+63	Persona
-2C	19	3 (7) 2	20	-5	Persona
-2D	26	7 (11) 3	56	+8	Persona
-2DD	26	2 (7) 2×15 (9) 3	56	+40	Persona
-j.C	11	4	11	-	Persona
-j.D	24	2×12 (13) 3	52	-	Persona
-C+D	5	3	23	-	Throw
-j.C+D	4	3	12	-	Throw
-5A+B	26	1	32	-14	Universal
-2A+B	9	3	20	-8	Universal
-B+D	Guard:?-;Attack:?7	Guard:?-;Attack:?2 (10) 2 (6) 2 (6) 2 (6) 2	Guard:?24;Attack:?18 + 15L	Guard:?-;Attack:?-24	Counter, Universal
-j.B+D	6	2 (6) 2 (6) 2 (6) 2	UL + 15	-	Universal
-6A+B (Guard Cancel)	15	6	30	-19	Universal
-236A	11	2 (6) 3 (6) 3	3 + 17L	-8	Skill
-236B	19	2 (6) 3 (6) 3 (6) 3 (6) 3	1 + 13L	+2	Skill
-236A+B	12	2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2	11L	+6	Skill
-j.236A	6	2 (6) 3 (6) 3	17L	-8	Skill
-j.236B	9	2 (6) 3 (6) 3 (6) 3 (6) 3	12L	-	Skill
-j.236A+B	7	2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2	UL + 11	-	Skill
-236A/B (air OK) > 236A	6	2 (9) 3	26	-12	Skill
-236A/B (air OK) > 236B	10	2 (9) 3	21	-7	Skill
-236A/B (air OK) > 236A+B	5	2 (9) 3	21	-7	Skill
-214A	11	6	23	-11~-6	Skill
-214B	25	9	21	-8~0	Skill
-214A+B	17	10,1	15	+3	Skill
-236C	18	12	23 + 15L	-35	Persona, Skill
-236D	30	18	23 + 15L	-	Persona, Skill
-236C+D	30	12	9 + 9L	-	Persona, Skill
-j.236C	14	12	UL + 15	-	Persona, Skill
-j.236D	17	16	15L	-	Persona, Skill
-j.236C+D	13	12	9 + 9L	-	Persona, Skill
-214C	13 [11]	12	24	-7	Persona, Skill
-214D	26 [22]	12	18	+5	Persona, Skill
-214[D]	55 [51]	12	11	+12	Persona, Skill
-214C+D	21	12	15	+5	Persona, Skill
-236236A	-	-	5 + 50SF	-	SP Skill
-236236B	-	-	5 + 50SF + 20	-	SP Skill
-236236A+B	-	-	5 + 50SF + 30	-	SP Skill
-236236C	4 + 50SF + 10	6	61	-16	Persona, SP Skill
-236236D	4 + 42SF + 18	6	69	-16	Persona, SP Skill
-236236C+D	4 + 42SF + 18	6 (27) 6	102	-16	Persona, SP Skill
-214214C	11 + 40SF + 9	-	35	-	Persona, Aw. SP Skill
-214214D	11 + 41SF + 15	-	34	-	Persona, Aw. SP Skill
-214214C+D	11 + 41SF + 7	-	34	-	Persona, Aw. SP Skill
-222C+D	13 + 30SF + 51	15	73	-62	Persona, Instant Kill
+5A	Normal	5	3	8	-1
+5AA	Normal	7	3 (3) 6	11	-2
+5AAA	Normal	10	2 (12) 3 (10) 3	19	-5
+5B	Normal	7	4	18	-7
+2A	Normal	7	2	12	-3
+2B	Normal	10	2	30	-17
+j.A	Normal	5	4	10	-
+j.B	Normal	8	3	13	-
+j.BB	Normal	7	9	12	-
+j.2B	Normal	9	3	12	-
+5C	Persona	12	3	31	-16
+5D	Persona	39	2 (3) 2 (6) 2 (11) 3	Total 61	+20
+5DD	Persona	39	2 (3) 2 (6) 2 (7) 2×15 (9) 3	Total 61	+63
+2C	Persona	19	3 (7) 2	20	-5
+2D	Persona	26	7 (11) 3	Total 56	+8
+2DD	Persona	26	2 (7) 2×15 (9) 3	Total 56	+40
+j.C	Persona	11	4	11	-
+j.D	Persona	24	2×12 (13) 3	Total 52	-
+C+D	Throw	5	3	23	-
+j.C+D	Throw	4	3	12	-
+5A+B	Universal	26	1	32	-14
+2A+B	Universal	9	3	20	-8
+B+D	Counter, Universal	Guard:?-;Attack:?7	Guard:?-;Attack:?2 (10) 2 (6) 2 (6) 2 (6) 2	Guard:?Total 24;Attack:?18 + 15L	Guard:?-;Attack:?-24
+j.B+D	Universal	6	2 (6) 2 (6) 2 (6) 2	UL + 15	-
+6A+B (Guard Cancel)	Universal	15	6	30	-19
+236A	Skill	11	2 (6) 3 (6) 3	3 + 17L	-8
+236B	Skill	19	2 (6) 3 (6) 3 (6) 3 (6) 3	1 + 13L	+2
+236A+B	Skill	12	2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2	11L	+6
+j.236A	Skill	6	2 (6) 3 (6) 3	17L	-8
+j.236B	Skill	9	2 (6) 3 (6) 3 (6) 3 (6) 3	12L	-
+j.236A+B	Skill	7	2 (4) 2 (4) 2 (4) 2 (4) 2 (4) 2	UL + 11	-
+236A/B (air OK) > 236A	Skill	6	2 (9) 3	26	-12
+236A/B (air OK) > 236B	Skill	10	2 (9) 3	21	-7
+236A/B (air OK) > 236A+B	Skill	5	2 (9) 3	21	-7
+214A	Skill	11	6	23	-11~-6
+214B	Skill	25	9	21	-8~0
+214A+B	Skill	17	10,1	15	+3
+236C	Persona, Skill	18	12	23 + 15L	-35
+236D	Persona, Skill	30	18	23 + 15L	-
+236C+D	Persona, Skill	30	12	9 + 9L	-
+j.236C	Persona, Skill	14	12	UL + 15	-
+j.236D	Persona, Skill	17	16	15L	-
+j.236C+D	Persona, Skill	13	12	9 + 9L	-
+214C	Persona, Skill	13 [11]	12	24	-7
+214D	Persona, Skill	26 [22]	12	18	+5
+214[D]	Persona, Skill	55 [51]	12	11	+12
+214C+D	Persona, Skill	21	12	15	+5
+236236A	SP Skill	-	-	5 + 50SF	-
+236236B	SP Skill	-	-	5 + 50SF + 20	-
+236236A+B	SP Skill	-	-	5 + 50SF + 30	-
+236236C	Persona, SP Skill	4 + 50SF + 10	6	Total 61	-16
+236236D	Persona, SP Skill	4 + 42SF + 18	6	Total 69	-16
+236236C+D	Persona, SP Skill	4 + 42SF + 18	6 (27) 6	Total 102	-16
+214214C	Persona, Projectile, Aw. SP Skill	11 + 40SF + 9	-	Total 35	-
+214214D	Persona, Projectile, Aw. SP Skill	11 + 41SF + 15	-	Total 34	-
+214214C+D	Persona, Projectile, Aw. SP Skill	11 + 41SF + 7	-	Total 34	-
+222C+D	Persona, Projectile, Instant Kill	13 + 30SF + 51	15	73	-62
