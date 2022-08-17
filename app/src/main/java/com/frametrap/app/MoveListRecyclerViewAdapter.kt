@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MoveListRecyclerViewAdapter(private var movelist: ArrayList<MoveModel>): RecyclerView.Adapter<MoveListRecyclerViewAdapter.ViewHolder>() {
 
-    private lateinit var cont: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.move_list_row, parent, false)
         return ViewHolder(view)
@@ -23,7 +22,7 @@ class MoveListRecyclerViewAdapter(private var movelist: ArrayList<MoveModel>): R
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.movenametextView.text = movelist[position].movename
-        val startup: String = movelist[position].startup
+        //val startup: String = movelist[position].startup
         /*when(startup.contains(";")) {
             false -> {
                 holder.startuptextView.text = startup

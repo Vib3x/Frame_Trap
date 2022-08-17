@@ -5,66 +5,64 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.widget.EditText
+import android.view.Menu
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.text.toLowerCase
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import java.io.BufferedReader
+import com.frametrap.app.databinding.ActivityMoveListBinding
 import java.io.IOException
 import java.io.InputStream
-import java.io.InputStreamReader
-import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MoveList : AppCompatActivity() {
-    private lateinit var movelistRecyclerView: RecyclerView
-    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
-    private lateinit var context: Context
-    private lateinit var editText: EditText
+    private lateinit var binding: ActivityMoveListBinding
     private lateinit var movelistrecyclerviewadapter: MoveListRecyclerViewAdapter
     private lateinit var movelist: ArrayList<MoveModel>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_move_list)
+        binding = ActivityMoveListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbarMovelist)
+
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val intent = intent
         val characterfile = intent.getStringExtra(MainActivity.EXTRA_CHARACTER_FILE)
         val dir = intent.getStringExtra(MainActivity.EXTRA_GAME_DIR)
 
-        context = this
-        toolbar = findViewById(R.id.toolbar_movelist)
-        movelistRecyclerView = findViewById(R.id.move_list_recyclerview)
-        editText = findViewById(R.id.movelist_edittext)
+        binding.toolbarMovelist.setNavigationOnClickListener { onBackPressed() }
 
-        toolbar.setNavigationOnClickListener { onBackPressed() }
-        toolbar.setPadding(0, 200, 0, 0)
-
-        editText.addTextChangedListener(object : TextWatcher{
+        /*binding.movelistEdittext.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
-
             override fun afterTextChanged(p0: Editable?) {
                 filter(p0.toString())
             }
-        })
-
-        loadmovelist(this, dir, characterfile)
+        })*/
+        showmovelist(this, dir, characterfile)
     }
 
-    private fun loadmovelist(cntxt: Context, dir: String?, characterfile:String?){
+    private fun showmovelist(cntxt: Context, dir: String?, characterfile:String?){
+        fillmovelist(dir, characterfile)
+        movelistrecyclerviewadapter= MoveListRecyclerViewAdapter(movelist)
+        binding.moveListRecyclerview.setHasFixedSize(true)
+        binding.moveListRecyclerview.adapter = movelistrecyclerviewadapter
+        binding.moveListRecyclerview.apply { layoutManager = LinearLayoutManager(cntxt) }
+    }
+
+    private fun fillmovelist(dir: String?, characterfile: String?){
+        movelist = ArrayList()
         var inputStream: InputStream? = null
-        try {
+        try{
             inputStream = assets.open("$dir/$characterfile")
             val reader = inputStream.bufferedReader()
-            movelist = ArrayList()
             var line: String
             while (true) {
                 line = reader.readLine() ?: break
@@ -72,10 +70,6 @@ class MoveList : AppCompatActivity() {
                 val move = MoveModel(row[0], row[1], row[2], row[3], row[4], row[5])
                 movelist.add(move)
             }
-            movelistrecyclerviewadapter = MoveListRecyclerViewAdapter(movelist)
-            movelistRecyclerView.setHasFixedSize(true)
-            movelistRecyclerView.adapter = movelistrecyclerviewadapter
-            movelistRecyclerView.apply { layoutManager = LinearLayoutManager(cntxt) }
         } catch (ex: IOException) {
             Toast.makeText(this, "Characterfile does not exist!", Toast.LENGTH_SHORT).show()
         } finally {
@@ -84,13 +78,37 @@ class MoveList : AppCompatActivity() {
     }
 
     private fun filter(text: String) {
-        val filtedList = ArrayList<MoveModel>()
+        val filteredList = ArrayList<MoveModel>()
         movelist.forEach {
             if (it.movename.lowercase().contains(text.lowercase()) or it.movetype.lowercase().contains(text.lowercase())) {
-                filtedList.add(it)
+                filteredList.add(it)
             }
         }
-        movelistrecyclerviewadapter.filterList(filtedList)
+        movelistrecyclerviewadapter.filterList(filteredList)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        val search = menu.findItem(R.id.action_search)
+        val searchview = search.actionView as SearchView
+        searchview.queryHint = "Type to search"
+        /*searchview.isIconifiedByDefault = true
+        searchview.isFocusable = true
+        searchview.isIconified = false
+        searchview.requestFocusFromTouch()*/
+
+        searchview.setOnQueryTextListener( object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                filter(p0.toString())
+                return true
+            }
+        })
+        return super.onCreateOptionsMenu(menu)
     }
 
     private fun getStatusBarHeight(): Int {

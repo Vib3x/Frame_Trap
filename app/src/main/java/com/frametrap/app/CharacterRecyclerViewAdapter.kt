@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import java.nio.channels.AsynchronousFileChannel.open
 
-class CharacterRecyclerViewAdapter(private val characterlist: ArrayList<CharacterModel>): RecyclerView.Adapter<CharacterRecyclerViewAdapter.ViewHolder>() {
+class CharacterRecyclerViewAdapter(private var characterlist: ArrayList<CharacterModel>): RecyclerView.Adapter<CharacterRecyclerViewAdapter.ViewHolder>() {
 
     private lateinit var clicklistener: OnItemClickListener
 
@@ -32,6 +32,11 @@ class CharacterRecyclerViewAdapter(private val characterlist: ArrayList<Characte
 
     override fun getItemCount(): Int {
         return characterlist.size
+    }
+
+    fun filterList(filteredList : ArrayList<CharacterModel>){
+        characterlist = filteredList
+        notifyDataSetChanged()
     }
 
     class ViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
