@@ -1,10 +1,6 @@
 package com.frametrap.app
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.Menu
 import android.widget.SearchView
 import android.widget.Toast
@@ -37,24 +33,15 @@ class MoveList : AppCompatActivity() {
 
         binding.toolbarMovelist.setNavigationOnClickListener { onBackPressed() }
 
-        /*binding.movelistEdittext.addTextChangedListener(object : TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-            override fun afterTextChanged(p0: Editable?) {
-                filter(p0.toString())
-            }
-        })*/
-        showmovelist(this, dir, characterfile)
+        showmovelist(dir, characterfile)
     }
 
-    private fun showmovelist(cntxt: Context, dir: String?, characterfile:String?){
+    private fun showmovelist(dir: String?, characterfile:String?){
         fillmovelist(dir, characterfile)
         movelistrecyclerviewadapter= MoveListRecyclerViewAdapter(movelist)
         binding.moveListRecyclerview.setHasFixedSize(true)
         binding.moveListRecyclerview.adapter = movelistrecyclerviewadapter
-        binding.moveListRecyclerview.apply { layoutManager = LinearLayoutManager(cntxt) }
+        binding.moveListRecyclerview.layoutManager = LinearLayoutManager(this)
     }
 
     private fun fillmovelist(dir: String?, characterfile: String?){
@@ -88,21 +75,14 @@ class MoveList : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         val search = menu.findItem(R.id.action_search)
         val searchview = search.actionView as SearchView
-        searchview.queryHint = "Type to search"
-        /*searchview.isIconifiedByDefault = true
-        searchview.isFocusable = true
-        searchview.isIconified = false
-        searchview.requestFocusFromTouch()*/
-
+        searchview.queryHint = "Search for moves"
         searchview.setOnQueryTextListener( object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
             }
-
             override fun onQueryTextChange(p0: String?): Boolean {
                 filter(p0.toString())
                 return true

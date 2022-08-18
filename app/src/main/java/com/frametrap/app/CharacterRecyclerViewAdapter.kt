@@ -34,9 +34,10 @@ class CharacterRecyclerViewAdapter(private var characterlist: ArrayList<Characte
         return characterlist.size
     }
 
-    fun filterList(filteredList : ArrayList<CharacterModel>){
-        characterlist = filteredList
-        notifyDataSetChanged()
+    fun update(list: ArrayList<CharacterModel>) {
+        characterlist.clear()
+        characterlist.addAll(list)
+        notifyDataSetChanged() //important updates the UI
     }
 
     class ViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {

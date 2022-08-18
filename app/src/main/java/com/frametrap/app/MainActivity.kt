@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -18,12 +17,12 @@ import java.io.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var dir: String
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var prefeditor: SharedPreferences.Editor
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var gamespinner: Spinner
-    private lateinit var dir: String
     private lateinit var characterrecyclerviewadapter: CharacterRecyclerViewAdapter
     private lateinit var characterlist: ArrayList<CharacterModel>
 
@@ -41,12 +40,43 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        setupNavigationListener()
-
         binding.contentMain.charactersRecyclerview.layoutManager = GridLayoutManager(this, 2)
         binding.contentMain.charactersRecyclerview.setHasFixedSize(true)
+        characterlist = ArrayList()
+        characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterlist)
+        binding.contentMain.charactersRecyclerview.adapter = characterrecyclerviewadapter
+        characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) { openmovelist(characterlist[position].file) }
+        })
 
-        setupgameselector()
+        setupNavigationListener()
+
+        gamespinner = binding.navView.menu.findItem(R.id.nav_game_spinner).actionView as Spinner
+        gamespinner.adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, arrayOf("Persona 4 Arena Ultimax 2.0", "Capcom vs. SNK 2"))
+        gamespinner.setSelection(sharedPreferences.getInt("lastSelection", 0))
+        gamespinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                when (id) {
+                    0L -> {
+                        supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
+                        dir = "p4au"
+                    }
+                    1L -> {
+                        supportActionBar!!.title = "Capcom vs. SNK 2"
+                        dir = "cvs2"
+                    }
+                }
+                characterlist = characterlist()
+                characterrecyclerviewadapter.update(characterlist)
+                prefeditor.putInt("lastSelection", position).commit()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                //fallback
+                supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
+                dir = "p4au"
+            }
+        }
+
     }
 
     private fun setupNavigationListener(){
@@ -67,45 +97,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupgameselector(){
-        gamespinner = binding.navView.menu.findItem(R.id.nav_game_spinner).actionView as Spinner
-        gamespinner.adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_list_item_1, arrayOf("Persona 4 Arena Ultimax 2.0", "Capcom vs. SNK 2"))
-        gamespinner.setSelection(sharedPreferences.getInt("lastSelection", 0))
-        gamespinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                when (id) {
-                    0L -> {
-                        supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
-                        dir = "p4au"
-                    }
-                    1L -> {
-                        supportActionBar!!.title = "Capcom vs. SNK 2"
-                        dir = "cvs2"
-                    }
-                }
-                loadcharacterlist()
-                prefeditor.putInt("lastSelection", position).commit()
-            }
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                //fallback
-                supportActionBar!!.title = "Persona 4 Arena Ultimax 2.0"
-                dir = "p4au"
-            }
-        }
-    }
-
-    private fun loadcharacterlist() {
-        fillcharacterlist()
-        characterrecyclerviewadapter = CharacterRecyclerViewAdapter(characterlist)
-        binding.contentMain.charactersRecyclerview.adapter = characterrecyclerviewadapter
-        //Set OnClickListeners
-        characterrecyclerviewadapter.setOnItemClickListener(object : CharacterRecyclerViewAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int) { openmovelist(characterlist[position].file) }
-        })
-    }
-
-    private fun fillcharacterlist(){
-        characterlist = ArrayList()
+    private fun characterlist(): ArrayList<CharacterModel>{
+        val charlist : ArrayList<CharacterModel> = ArrayList()
         var inputStream: InputStream? = null
         try {
             inputStream = assets.open("$dir/characters.tsv")
@@ -115,13 +108,14 @@ class MainActivity : AppCompatActivity() {
                 line = reader.readLine() ?: break
                 val row = line.split("\t").toTypedArray()
                 val character = CharacterModel(row[0], row[1], row[2])
-                characterlist.add(character)
+                charlist.add(character)
             }
         } catch (ex: IOException) {
             Toast.makeText(this, "Characterlist file does not exist!", Toast.LENGTH_SHORT).show()
         } finally {
             inputStream?.close()
         }
+        return charlist
     }
 
     private fun openmovelist(characterfile: String){
@@ -138,25 +132,18 @@ class MainActivity : AppCompatActivity() {
                 filteredList.add(it)
             }
         }
-        characterrecyclerviewadapter.filterList(filteredList)
+        characterrecyclerviewadapter.update(filteredList)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         val search = menu.findItem(R.id.action_search)
         val searchview = search.actionView as SearchView
-        searchview.queryHint = "Type to search"
-        /*searchview.isIconifiedByDefault = true
-        searchview.isFocusable = true
-        searchview.isIconified = false
-        searchview.requestFocusFromTouch()*/
-
+        searchview.queryHint = "Search for characters"
         searchview.setOnQueryTextListener( object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return false
             }
-
             override fun onQueryTextChange(p0: String?): Boolean {
                 filter(p0.toString())
                 return true
